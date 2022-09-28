@@ -9,7 +9,7 @@ export default function Checkout() {
             <CheckoutForm/>
             <div className="purchase-summary">
               <h2 className="summary-text">Your Order</h2>
-              <button className='order-button'>Order</button>
+              <button className='order-button' type="submit" form="checkout-form">Order</button>
             </div>
         </section>
     </div>

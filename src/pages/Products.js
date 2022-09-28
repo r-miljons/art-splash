@@ -10,17 +10,15 @@ export default function Products() {
   const [searchResults, setSearchResults] = useState();
 
   useEffect(() => {
-    data && setSearchResults(data.allProduct.filter(product => product.name.toLowerCase().includes(params.query)));
+    data && setSearchResults(data.allProduct.filter(product => product.name.toLowerCase().includes(params.query.toLowerCase())));
   }, [data, params.query])
 
   if (loading) return <p>Loading...</p>;
-	if (error) return <p>Error</p>;
-
-  console.log(searchResults);
+	if (error) return <p>Error</p>; 
 
   return (
     <>
-      <p>Results for "{params.query}"</p>
+      <p style={{textAlign: "center", marginBottom: "2rem"}}>{searchResults?.length > 0 ? "Results" : "No results"} for "{params.query}"</p>
       <div className='category-products'>
         {searchResults?.map((product) => {
           return (
