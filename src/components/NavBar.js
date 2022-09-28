@@ -9,6 +9,11 @@ import menu from "../assets/menu.svg";
 export default function NavBar() {
 	const navigate = useNavigate();
 
+	function handleSubmit(e) {
+		e.preventDefault();
+		navigate('/products/' + e.target[0].value);
+	}
+
 	return (
 		<div className="nav-container">
 			<nav>
@@ -18,13 +23,13 @@ export default function NavBar() {
 				<div className="logo" onClick={() => navigate("/")}>
 					<img src={logo} alt="logo" />
 				</div>
-				<form className="search-container">
+				<form className="search-container" onSubmit={handleSubmit}>
 					<input
 						type="text"
 						className="search-input"
 						placeholder="Search for art..."
 					/>
-					<button>
+					<button type="submit">
 						<img src={searchIcon} alt="search" />
 					</button>
 				</form>

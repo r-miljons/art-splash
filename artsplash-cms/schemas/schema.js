@@ -8,6 +8,7 @@ import product from './product'
 import category from './category'
 import featured from './featured'
 import artist from './artist'
+import spotlight from './spotlight'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -22,5 +23,6 @@ export default createSchema({
     category,
     featured,
     artist,
+    spotlight,
   ]),
 })

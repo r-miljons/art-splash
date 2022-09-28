@@ -1,6 +1,31 @@
 import { gql } from "@apollo/client";
 
 export default {
+  GET_SPOTLIGHT: gql`
+  query {
+    allSpotlight {
+      title,
+      bodyRaw,
+      button,
+      url,
+      mainPicture {
+        asset {
+          url
+        }
+      }
+          secondPicture {
+        asset {
+          url
+        }
+      }
+          thirdPicture {
+        asset {
+          url
+        }
+      }
+    }
+  }
+  `,
   GET_FEATURED: gql`
   query {
     allFeatured {
@@ -130,6 +155,12 @@ export default {
       descriptionRaw,
       picture {
         asset {
+          metadata {
+            dimensions {
+              width
+              height
+            }
+          }
           url
         }
       },
