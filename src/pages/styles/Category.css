@@ -1,0 +1,118 @@
+.category-header {
+    margin-top: -1rem;
+    margin-left: -1rem;
+    width: calc(100% + 2rem);
+    padding: 4rem 1rem;
+    background-position: center;
+    background-size: cover;
+}
+
+.category-text-wrap {
+    background-color: rgba(0, 0, 0, 0.46);
+    padding: 2rem 4rem;
+    width: max-content;
+    margin: 0 auto;
+    backdrop-filter: blur(5px);
+}
+
+header h1 {
+    margin: 0 auto;
+    width: fit-content;
+    color: white;
+}
+
+header p {
+    margin: 1rem auto 0;
+    width: fit-content;
+}
+
+.products-container {
+    padding: 4rem 0 0;
+}
+
+.category-products {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-auto-rows: 500px;
+    width: 100%;
+}
+
+.category-product-wrap {
+    overflow: hidden;
+    height: 100%;
+    background-color: var(--main-color);
+    padding: 1.5rem;
+    width: 100%;
+}
+
+.category-product {
+    height: 100%;
+}
+
+.category-product img {
+    width: 100%;
+    height: 75%;
+    object-fit: contain;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.category-product img:hover {
+    transform: scale(1.05);
+}
+
+.product-info {
+    padding-top: 1rem;
+    gap: 1rem;
+    display: flex;
+    justify-content: space-between;
+    height: 25%;
+}
+
+.product-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.product-text h2 {
+    color: rgb(0, 0, 0);
+    font-weight: 300;
+    margin-top: 0;
+    background-color: var(--secondary-color);
+    padding: 0.4rem 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.product-text {
+    max-width: 60%;
+}
+
+.product-text p {
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin-bottom: 0;
+}
+
+@media screen and (max-width: 450px) {
+    .category-products {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-auto-rows: max-content;
+    }
+    .category-product img {
+        width: 100%;
+        height: fit-content;
+    }
+    .product-text {
+        min-width: 0;
+    }
+    .product-text h2 {
+        font-size: 1rem;
+    }
+    .product-buttons {
+        min-width: max-content;
+    }
+}

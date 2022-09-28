@@ -6,6 +6,8 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 import richText from './richText'
 import product from './product'
 import category from './category'
+import featured from './featured'
+import artist from './artist'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -18,5 +20,7 @@ export default createSchema({
     richText,
     product,
     category,
+    featured,
+    artist,
   ]),
 })

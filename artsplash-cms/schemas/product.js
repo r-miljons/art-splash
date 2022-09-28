@@ -41,6 +41,22 @@ export default {
             validation: Rule => Rule.required(),
         },
         {
+            title: 'Artist',
+            name: 'author',
+            description: "Add an artist first, if there isn't one.",
+            validation: Rule => Rule.required(),
+            type: 'array',
+            of: [
+              {
+                type: 'reference',
+                to: [
+                  {type: 'artist'},
+                  // etc
+                ]
+              }
+            ]
+        },
+        {
             title: 'Category',
             name: 'category',
             description: "Create a category first, if it doesn't exist.",

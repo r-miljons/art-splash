@@ -1,0 +1,26 @@
+.slick-next {
+    right: -20px ;
+  }
+  
+  .slick-prev {
+    left: -20px;
+    z-index: 1;
+  }
+  
+  .slick-prev, .slick-next {
+    font-size: 2rem;
+    top: 45%;
+  }
+
+  .slick-next:before {
+    content: url("../../assets/arrow-next.svg");
+  }
+
+  .slick-prev:before {
+    content: url("../../assets/arrow-back.svg");
+  }
+
+  .slick-prev:hover, .slick-next:hover {
+    outline: none;
+    border: none;
+  }
