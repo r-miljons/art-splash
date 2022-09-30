@@ -1,21 +1,30 @@
 import { useQuery } from "@apollo/client";
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useNavigate, useParams } from "react-router-dom";
 import queries from "../gql/queries";
 import { PortableText } from "@portabletext/react";
 import "./styles/Product.css";
 import FeaturedProducts from "../components/FeaturedProducts/FeaturedProducts";
 import Newsletter from "../components/Newsletter";
 import { Gallery, Item } from 'react-photoswipe-gallery'
+import { addItem } from "../features/cartSlice";
 import 'photoswipe/dist/photoswipe.css'
 
 export default function Product() {
 	const params = useParams();
+	const navigate = useNavigate();
+	const dispatch = useDispatch();
 	const { data, loading, error } = useQuery(queries.GET_PRODUCT, {
 		variables: {
 			id: params.id,
 		},
 	});
+
+	function handleBuy(item) {
+		dispatch(addItem(item));
+		navigate('/checkout');
+	}
 
 	if (loading) return <p>Loading...</p>;
 	if (error) return <p>Error</p>;
@@ -41,8 +50,8 @@ export default function Product() {
 						<PortableText value={data.Product.descriptionRaw} />
 						<p className="product-page-info-price">{data.Product.price} €</p>
 						<div className="product-page-buttons">
-						<button>BUY</button>
-						<button>ADD TO CART</button>
+						<button onClick={() => handleBuy(data.Product)}>BUY</button>
+						<button onClick={() => dispatch(addItem(data.Product))}>ADD TO CART</button>
 						</div>
 					</div>
 				</div>

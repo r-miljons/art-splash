@@ -2,11 +2,14 @@ import { useQuery } from "@apollo/client";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import queries from "../gql/queries";
+import { useDispatch } from "react-redux";
+import { addItem } from "../features/cartSlice";
 
 function CategoryProducts({ categoryId }) {
 	const { data, loading, error } = useQuery(queries.GET_PRODUCTS);
 	const [productsData, setProductsData] = useState();
 	const navigate = useNavigate();
+	const dispatch = useDispatch();
 
 	useEffect(() => {
 		data &&
@@ -50,7 +53,7 @@ function CategoryProducts({ categoryId }) {
 										>
 											SHOP
 										</button>
-										<button>ADD TO CART</button>
+										<button onClick={() => dispatch(addItem(product))}>ADD TO CART</button>
 									</div>
 								</div>
 							</div>

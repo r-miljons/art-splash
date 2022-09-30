@@ -6,10 +6,13 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./FeaturedProducts.css";
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { addItem } from '../../features/cartSlice';
 
 export default function FeaturedProducts() {
   const { data, loading, error } = useQuery(queries.GET_FEATURED);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error</p>;
@@ -54,7 +57,7 @@ export default function FeaturedProducts() {
                     </div>
                     <div className='featured-buttons'>
                       <button onClick={() => navigate(`/product/${item._id}`)}>SHOP</button>
-                      <button>ADD TO CART</button>
+                      <button onClick={() => dispatch(addItem(item))}>ADD TO CART</button>
                     </div>
                   </div>
                 </div>

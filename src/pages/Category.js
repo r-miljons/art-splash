@@ -13,7 +13,7 @@ export default function Category() {
 
   useEffect(() => {
     data && setCategoryData(data.allCategory.find(category => category._id === params.id));
-  }, [data]);
+  }, [data, params.id]);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error</p>;

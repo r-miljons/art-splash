@@ -1,10 +1,12 @@
 import React from 'react'
 
-export default function CheckoutForm() {
+export default function CheckoutForm({onSubmit}) {
+
+
   return (
     <div className="shipping-form">
         <h1 className="checkout-text">Checkout</h1>
-        <form action="" method="post" id="checkout-form">
+        <form action="" method="post" id="checkout-form" onSubmit={onSubmit}>
             <p className="section-info">Billing details</p>
             <div className="form-grid">
                 <div className="grid-section">
@@ -24,8 +26,8 @@ export default function CheckoutForm() {
             <div className="form-grid">
                 <div className="grid-section">
                     <label htmlFor="country">Country</label>
-                    <select id="country" name="country" required>
-                        <option value="" disabled defaultValue hidden>Select a Country</option>
+                    <select defaultValue="default " id="country" name="country" required>
+                        <option value="default">Select a Country</option>
                         <option value="AT">Austria</option>
                         <option value="BY">Belarus</option>
                         <option value="BE">Belgium</option>

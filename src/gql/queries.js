@@ -30,8 +30,8 @@ export default {
   query {
     allFeatured {
       product {
-        _id,
         name,
+        _id,
         descriptionRaw,
         price,
         picture {
@@ -121,8 +121,8 @@ export default {
   GET_PRODUCTS : gql`
   query {
     allProduct {
-      _id,
       name,
+      _id,
       author {
         _id
       },
@@ -149,6 +149,7 @@ export default {
   query($id: ID!) {
     Product(id: $id) {
       name,
+      _id,
       slug {
         current
       },

@@ -2,9 +2,12 @@ import { useQuery } from '@apollo/client';
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import queries from '../gql/queries';
+import { useDispatch } from "react-redux";
+import { addItem } from "../features/cartSlice";
 
 export default function Products() {
   const params = useParams();
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const { data, loading, error } = useQuery(queries.GET_PRODUCTS);
   const [searchResults, setSearchResults] = useState();
@@ -47,7 +50,7 @@ export default function Products() {
                     >
                       SHOP
                     </button>
-                    <button>ADD TO CART</button>
+                    <button onClick={() => dispatch(addItem(product))}>ADD TO CART</button>
                   </div>
                 </div>
               </div>
